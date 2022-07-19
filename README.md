@@ -22,3 +22,7 @@ media keys and remappig FN
  -cosmic  byte themis 
  
  -(any keyboard with software using described cfg.ini file)
+ 
+ # 60% keyboard K-map
+ 
+![K-MAP ](https://user-images.githubusercontent.com/68894386/179691046-a58b71c3-0a84-45bb-a336-03d543a68b4a.png)
