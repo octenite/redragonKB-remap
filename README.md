@@ -16,6 +16,9 @@ media keys and remappig FN
 probably compatible keyboards --
 
  -HK gaminng GK61
+ 
  -Eyooso Z-11(redragon k617 clone , cross compatible  cfg files and software)
+ 
  -cosmic  byte themis 
+ 
  -(any keyboard with software using described cfg.ini file)
