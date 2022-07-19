@@ -13,7 +13,7 @@ Personally tested on Redragon k617!
 I have provided modified cfg file for K617 adding 
 media keys and remappig FN 
 
-#Probably compatible keyboards --
+# Probably compatible keyboards --
 
  -HK gaminng GK61
  
