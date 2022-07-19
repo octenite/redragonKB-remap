@@ -15,7 +15,7 @@ media keys and remappig FN
 
 # Probably compatible keyboards --
 
- -HK gaminng GK61
+ -HK gaming GK61
  
  -Eyooso Z-11(redragon k617 clone , cross compatible  cfg files and software)
  
