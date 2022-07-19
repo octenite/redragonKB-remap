@@ -1,0 +1,25 @@
+PRESET CFG.INI files
+
+!!!
+the [OPT] is very specific to each keyboard and model thus only use the stock OPT data 
+
+one can use the hex codes and k maps freely in the [FN] layer
+but need to be careful while mapping the main [KEY] layer as the 
+numbers seperated by "," before and after the hex code in middle are specific to each vendor/ model
+and should not be modifed , only modify the three hex  values in the middle ass per hex outputs file
+!!!
+
+I have made a modified a cfg file for my k617 , essentially it has--
+
+- 2 FN keys , one is on capslock(K29) and one is on default FN(K59)
+- MENU(K60) key is mapped to CAPSLOCK on main-layer and to MENU on the FN-layer
+- F(K33) is MUTE on FN-layer
+- G(K34) is vol up on FN-layer
+- H(K35) is vol up on FN-layer
+
+-Z(K43) is pause media FN-layer
+-x(K44) is previous on FN-layer
+-c(K45) is next on FN-layer
+
+this much of remapping ablility means we can essentially make a cfg file to remap main layer to DVORAK layout
+possibilites are endless!!

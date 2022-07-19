@@ -1,0 +1,87 @@
+
+To remap the keyboard keys we will require 
+
+# to know which physical key on keyboard to remap  
+= the physical key Number is denoted by the "Kxx" in the K-MAP file
+
+# to provide the desired output/action for the key using its corresponding Hex code
+= the hex codes for output/action is listed in the hex output file 
+
+we take the keys K value and equal it to the hex value for the desired action 
+a specific format must be followed for the mapping to be valid and recognised by the software in the config file
+------------------------------------------------
+cfg.ini file FORMAT example  ----   
+
+##START OF FILE
+[OPT]        // these are some vendor specific configs listing KB name , model , firmware version
+            // , rgb modes, speed , ect ect . none of our business . DO NOT MODIFY these , 
+		   // These are vendor specific , and mosty not cross compatible configs(eyooso z11 & redragon fizz are cross compatible)
+          // SO...when making a cfg.ini file always use the stock [OPT] data		  
+
+
+[FN]               ||lists the mappings of the FN layer 
+;Esc               || this line is for indicative purpose and does not influence mapping
+K1=0x02,0xC0,0x00  || this is the main mapping data,  format "{K value}={hex value}"
+;1                 ||
+K2=0x02,0x70,0x00  ||mappings must be in serial order ie. K1,K2,K3,K4......K61
+;2
+K3=0x02,0x71,0x00
+;3
+K4=0x02,0x72,0x00
+;4
+K5=0x02,0x73,0x00
+;??
+K?=???
+.................. continues
+
+[KEY]                                   || Lists the mappings of the main layer
+;Esc                                    || it is for indicative purpose and does not influence mapping
+K1=17,10,41,38, 0x02,0x1B,0x00,1,21     ||this is the mapping format "{K value}={hex value}"
+;1                                      ||
+K2=55,10,79,38, 0x02,0x31,0x00,7,22     ||mappings must be in serial order ie. K1,K2,K3,K4......K61
+;2                                      ||
+K3=92,10,116,38, 0x02,0x32,0x00,13,23   ||we are only concerned about the middle hex codes DO NOT modify/remove the other numbers before and after the hex codes
+;3                                      ||
+K4=129,10,153,38, 0x02,0x33,0x00,19,24  || the numbers 4 numbers before hex and 2 after hex , idk wahat they do, my guess is they are mostly specific to each vendor/model so do not change
+;4                                      || them , these are only found in the [KEY] main layer mappings . so your KB already has these for all the 61 keys
+K5=167,10,191,38, 0x02,0x34,0x00,25,25
+;?
+K?=???
+.................. 
+K61=??
+## END OF FILE
+-----------------------------------------------
+WHAT  NOW? 
+
+Go to your keyboard softwares installation directory and look for the cfg.ini file 
+if the file has the above format then you can proceed to modifying the file 
+modify it according to the instuctions above as per your choice of keys and desired output
+after edidting the mappings in the cgf.ini file apply it using the software provided
+do take a backup of your stock cgf.ini in case u need to reset back to stock
+-----------------------------------------------
+
+APPLYING THE CONFIGS
+
+these softwares are very generic and are mostly copy pasta of one another with few modifications across models
+In these software we are looking for buttons "RESTORE" & "APPLY"
+
+pressing 'APPLY'   will NOT apply the configs already made into the cgf.ini
+pressing 'RESTORE' WILL restore the keyboard mappings using the cfg.ini mapping data 
+
+after using RESTORE , you should have your mappings applied to your keyboard 
+
+
+-----------------------------------------------
+
+WHAT CAN GO WRONG?
+
+well nothing critical to the point where the keyboard is just a brick, so chill { you are doing all these at your own risk btw, dont cry later }
+if the mappings are not edited correctly or conflicts , sometimes for some weird reasons some keys may have null output ( logically sending no data, as if its dead)
+if such things happen , restore the stock cfg.ini [ well if u didnt take a backup before hand dont worry , just reinstall the software , it comes with the stock cfg.ini]
+replaced your frankenstein cfg.ini with the stock one and RESTORE using the software
+using reset key combo{specific to each keyboard} will also restore the keyboard to stock condition { hold FN+ESC in case of redragon fizz k617} 
+
+ 
+
+
+

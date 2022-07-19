@@ -1,0 +1,22 @@
+1. A 'supported' keyboard
+2. A pc
+3. a regular human Brain
+4. lots Patience
+
+SUPPORTED KEYBOARDS--
+
+As far as I have discovered and know , all the budget keyboards that come with a software have a high
+probability of working with the method described in the 'How to' . you will need to check if ur keyboard 
+has the similar working method and cfg.ini file or any other similar file with the described structure of mapping
+in the installation folder of the software. 
+
+I have looked through few keyboard softwares including-
+
+1. Redragon fizz k617 ( personally tested on , has a MCU "BYK916" on the PCB)
+2. eyooso Z-11 ( clone of k617, uses the same board, cross compatible cgf files and software with the redragon k617)
+3. HK gaming GK61 ( optical one , has same cfg.ini file with same structure , imported the media keys & vol up/dn/mute hex codes from this KBs cfg file)
+4. CosmicByte themis (prbly some generic chinese clone board , with their modified software only)
+all these keyboard software uses the described cfg.ini structure and mapping format
+
+My guess would be that this method should work with any GK6X and SK6X keyboard , only way to fnd out is to modify,try and test further
+
