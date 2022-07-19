@@ -10,7 +10,7 @@ To remap the keyboard keys we will require
 we take the keys K value and equal it to the hex value for the desired action 
 a specific format must be followed for the mapping to be valid and recognised by the software in the config file
 ------------------------------------------------
-cfg.ini file FORMAT example  ----   
+'cfg.ini'( found in installation directory of KB software) file FORMAT example  ----   
 
 ##START OF FILE
 [OPT]        // these are some vendor specific configs listing KB name , model , firmware version
