@@ -1,20 +1,21 @@
-# redragonKB-remap
-Remap Fn in Redragon keyboard (+ eyooso,cosmic byte,hk gaming,etc)
+Remap any key , including FN ,modifying and adding keys to  FN layer 
 
-Guide on how to--
- --remap FN key to any key on the keyboard 
- --add additional FN layer keys
- 
- 
-all the remapping modifications are made to the cfg.ini config file found in software installation folder to remap the keys
+Read instructons to determine if your keyboard supports this method
 
+Instuctions explain how to use the K-MAP and Hex Output files for
+making your very own custom remap of keys by modifying the cfg.ini file
+(cfg.ini is located in the installation directroy of your keyboard software)
 
-and are applied to the keyboard by using the software provided by Redragon/eyooso (k617\z-11 software are cross compatible)(z-11 software includes some bug fixes)
+The modifications are applied through the software provided 
+by the manufacturer (check out 'how to' in instructions )
 
-!!tested on Redragon Fizz K617
+Personally tested on Redragon k617!
+I have provided modified cfg file for K617 adding 
+media keys and remappig FN 
 
+probably compatible keyboards --
 
-Remap changes are saved in the keyboard MCU thus works on hardware level and do not need to be reapplied
-
-!!May need to include some addiotional changes/edit the file differntly for different KB vendors for remap to work but core logic to remapping is same
-
+# HK gaminng GK61
+# Eyooso Z-11(redragon k617 clone , cross compatible  cfg files and software)
+# cosmic  byte themis 
+#(any keyboard with software using described cfg.ini file)
