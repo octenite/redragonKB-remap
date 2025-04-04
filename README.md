@@ -23,6 +23,9 @@ media keys and remappig FN
 
  -(any keyboard with software using described cfg.ini file)
 
+ **NOTE:**
+ Most of these keyboards use BYK916/SH68F90A MCU , the provided OEM softwares are all almost similar with a changed Skin on top. Although few of them I belive use a totally different firmware (like RD K630?) and are not compatable with this approach. There is the [SMK](https://github.com/carlossless/smk) Project for such Keyboards and the boards using BYK916 / BYK901 / SH68F90A MCU in general. It aims to add much greater functionality by flashing a custom firmware. Do take a backup of the MCU Flash contents before proceeding using [sinowealth-kb-tool](https://github.com/carlossless/sinowealth-kb-tool).
+
 # 60% keyboard K-map
 
-![K-MAP ](https://user-images.githubusercontent.com/68894386/179691046-a58b71c3-0a84-45bb-a336-03d543a68b4a.png)
+![K-MAP ](/K-MAP.png)
