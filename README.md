@@ -163,6 +163,12 @@ after using RESTORE , you should have your mappings applied to your keyboard.
 <details>
 <summary><h3>KNOWN ISSUES</h3></summary>
 
+FN REMAPPING EXCEPTION -
+
+While FN can be remapped to any key , we need to make sure that the key we are remapping FN to (in the main layer to activate FN layer) does not have a corresponding action on the FN layer itself.
+If it does,keyboard will fail to switch to FN, as pointed out in Issue [#3](https://github.com/octenite/redragonKB-remap/issues/3). 
+So make sure that the FN key does not have any mappings in the FN layer,if it does remove it.
+
 SOMETHING WENT WRONG? - Restore back to Stock settings
 
 If the mappings are not edited correctly or conflicts , sometimes for some weird reasons some keys may have null output ( as if its dead)
