@@ -26,7 +26,6 @@ media keys and remappig FN
  **NOTE:**
  Most of these keyboards use BYK916/SH68F90A MCU , the provided OEM softwares are all almost similar with a changed Skin on top. Although few of them I belive use a totally different firmware (like RD K630?) and are not compatable with this approach. There is the [SMK](https://github.com/carlossless/smk) Project for such Keyboards and the boards using BYK916 / BYK901 / SH68F90A MCU in general. It aims to add much greater functionality by flashing a custom firmware. Do take a backup of the MCU Flash contents before proceeding using [sinowealth-kb-tool](https://github.com/carlossless/sinowealth-kb-tool).
 
-
 # Instructions
 
 <details>
@@ -40,16 +39,16 @@ media keys and remappig FN
      <summary><h5>supported keyboards</h5></summary>
 
 As far as I have discovered and know , all the budget keyboards that come with a software have a high
-probability of working with the method described in the 'How to' . you willneed to check if your keyboard 
+probability of working with the method described in the 'How to' . you willneed to check if your keyboard
 has the similar working method and cfg.ini file or any other similar filewiththe described structure of mapping
-in the installation folder of the software. 
+in the installation folder of the software.
 I have looked through few keyboard softwares including-
 
 1. Redragon fizz k617 ( personally tested on , has a MCU "BYK916" on the PCB)
 2. eyooso Z-11 ( clone of k617, uses the same board, cross compatible cgf files and software with the redragon k617)
 3. HK gaming GK61 ( optical one , has same cfg.ini file with same structure , imported the media keys & vol up/dn/mute hex codes from this KBs cfg file)
 4. CosmicByte themis (probaly some generic chinese clone board , with their modified software) <br>
-   
+
 all these keyboard software uses the described cfg.ini structure and mapping format
 My guess would be that this method should work with any GK6X and SK6X keyboard , only way to fnd out is to modify,try and test further.
 
@@ -57,32 +56,30 @@ My guess would be that this method should work with any GK6X and SK6X keyboard ,
 
 </details>
 
-
-
-
 <details>
     <summary><h3>HOW TO</h3></summary>
 
-To remap the keyboard keys we will require 
+To remap the keyboard keys we will require
 
 1. To know which physical key on keyboard to remap</br>
     the physical key Number is denoted by the "Kxx" in the K-MAP file
 
-2. To provide the desired output/action for the key using its corresponding Hex code</br> 
-    The hex codes for output/action is listed in the hex output file 
+2. To provide the desired output/action for the key using its corresponding Hex code</br>
+    The hex codes for output/action is listed in the hex output file
 3. Locate the "cfg.ini" file and edit it </br>
     its located in the install directory of the keyboard software
 4. Apply the new mapping configs of the cfg.ini using the OEMs provided software
 
 First we take the keys K value and equal it to the hex value for the desired action by editing the cfg.ini file.A specific format must be followed for the mapping to be valid and recognised by the software in the config file.
 
-
 <details>
 <summary><h4>BASIC FORMAT/STRUCTURE OF "cfg.ini" FILE</h4></summary>
 <br>
-    
+
 the 'cfg.ini' is found in installation directory of KB software <br>
-##### cfg.ini file FORMAT example:- 
+
+##### cfg.ini file FORMAT example:-
+
 <pre>
 
 ##START OF FILE
@@ -92,8 +89,7 @@ the 'cfg.ini' is found in installation directory of KB software <br>
             || These are vendor specific , and mosty not cross compatible configs(eyooso z11 & redragon fizz are cross compatible)
             || SO...when making a cfg.ini file always use the stock [OPT] data
 
-
-[FN]               ||lists the mappings of the FN layer 
+[FN]               ||lists the mappings of the FN layer
 ;Esc               || this line is for indicative purpose and does not influence mapping
 K1=0x02,0xC0,0x00  || this is the main mapping data,  format "{K value}={hex value}"
 ;1                 ||
@@ -121,7 +117,7 @@ K4=129,10,153,38, 0x02,0x33,0x00,19,24  || the numbers 4 numbers before hex and 
 K5=167,10,191,38, 0x02,0x34,0x00,25,25
 ;XXXX
 KXXX=0xXX,0xXX,0xXX
-.................. 
+..................
 K61=0xXX,0xXX,0xXX
 ## END OF FILE
 --------------------------
@@ -147,12 +143,11 @@ do take a backup of your stock cgf.ini in case u need to reset back to stock<br>
 <details>
     <summary><h4>APPLYING THE CONFIGS</h4></summary>
 
-
 These softwares are very generic and are mostly copy pasta of one another with few modifications across models
 In these software we are looking for buttons "RESTORE" & "APPLY"
 
 pressing 'APPLY'   will NOT apply the configs already made into the cgf.ini
-pressing 'RESTORE' WILL restore the keyboard mappings using the cfg.ini mapping data 
+pressing 'RESTORE' WILL restore the keyboard mappings using the cfg.ini mapping data
 So,after editing the cfg file we will open the app and press the restore button
 after using RESTORE , you should have your mappings applied to your keyboard.
 
@@ -166,9 +161,25 @@ after using RESTORE , you should have your mappings applied to your keyboard.
 FN REMAPPING EXCEPTION -
 
 While FN can be remapped to any key , we need to make sure that the key we are remapping FN to (in the main layer to activate FN layer) does not have a corresponding action on the FN layer itself.
-If it does,keyboard will fail to switch to FN, as pointed out in Issue [#3](https://github.com/octenite/redragonKB-remap/issues/3). 
+If it does,keyboard will fail to switch to FN, as pointed out in Issue [#3](https://github.com/octenite/redragonKB-remap/issues/3).
 So make sure that the FN key does not have any mappings in the FN layer,if it does remove it.
 
+SOME KEYS NOT WORKING - 
+
+I came across an issue where the K60(default APP key on Redragon K617) was not working .The issue is in buggy mapping numbers in  cfg ini. Using the latest available software fixed the issue.
+The change that fixed it - 
+
+From
+<pre>
+;App
+K60=468,160,501,188, 0x02,0x5D,0x00,65,115
+
+</pre>
+To
+<pre>
+;App
+K60=468,160,501,188, 0x02,0x5D,0x00,77,117
+</pre>
 SOMETHING WENT WRONG? - Restore back to Stock settings
 
 If the mappings are not edited correctly or conflicts , sometimes for some weird reasons some keys may have null output ( as if its dead)
@@ -181,11 +192,12 @@ Using reset key combo(specific to each keyboard) will also restore the keyboard 
 #
 
 ### 60% keyboard K-map
+
 <img src=K-MAP.png>
 
 <details>
     <summary><h3><b>Key Hex Codes</b></h3></summary>
-Similar Hex codes as in Win32 api <a href="https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes" target="_blank"> Virtual-Key Codes </a> 
+Similar Hex codes as in Win32 api <a href="https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes" target="_blank"> Virtual-Key Codes </a>
     <div style="max-height: 600px; overflow-y: auto; margin-top: 10px;">
 format:-
 {key action/output}={hex code}  
@@ -317,39 +329,39 @@ LWin=0x02,0x5B,0x00
 
 WIN=0x02,0x5C,0x00
 
-MENU/APP KEY=0x02,0x5D,0x00	
+MENU/APP KEY=0x02,0x5D,0x00
 
 >0x60-------
 
 NUM 0 =0x02,0x60,0x00
-	
-NUM 1 =0x02,0x61,0x00
-	
-NUM 2 =0x02,0x62,0x00
-	
-NUM 3 =0x02,0x63,0x00	
 
-NUM 4 =0x02,0x64,0x00	
+NUM 1 =0x02,0x61,0x00
+
+NUM 2 =0x02,0x62,0x00
+
+NUM 3 =0x02,0x63,0x00
+
+NUM 4 =0x02,0x64,0x00
 
 NUM 5 =0x02,0x65,0x00
-	
+
 NUM 6 =0x02,0x66,0x00
-	
+
 NUM 7 =0x02,0x67,0x00
-	
+
 NUM 8 =0x02,0x68,0x00
-	
+
 NUM 9 =0x02,0x69,0x00
-	
-NUM * =0x02,0x6A,0x00	
 
-NUM + =0x02,0x6B,0x00	
+NUM * =0x02,0x6A,0x00
 
-NUM - =0x02,0x6D,0x00	
+NUM + =0x02,0x6B,0x00
 
-NUM . =0x02,0x6E,0x00	
+NUM - =0x02,0x6D,0x00
 
-NUM / =0x02,0x6F,0x00	
+NUM . =0x02,0x6E,0x00
+
+NUM / =0x02,0x6F,0x00
 
 >0x70------
 
@@ -399,7 +411,7 @@ RCTRL = 0x02,0xA3,0x00
 
 LCTRL = 0x02,0xA2,0x00
 
-LALT = 0x02,0xA4,0x00 
+LALT = 0x02,0xA4,0x00
 
 RALT = 0x02,0xA5,0x00
 
@@ -447,7 +459,6 @@ NUM ENTER = 0x02,0xFD,0x00
 
 {Will be mapped to FN layer , but can be mapped to main layer too}
 
-
 MEDIA = 0x04,0x21,0x00
 
 PAUSE MEDIA = 0x04,0x22,0x00
@@ -464,19 +475,18 @@ VOLUME DOWN = 0x04,0x27,0x00
 
 MUTE MEDIA = 0x04,0x28,0x00
 
-
 >0x09 PREFIX OEM/VENDOR SPECIFIC KEYBOARD LOCAL SETTINGS FUNCTIONS
 
 WHITE BACKLIT [CUSTOM FUNCTION of k617] = 0x09,0x00,0x0e000006
-	
+
 LOCK WINDOWS KEY = 0x09,0x00,0x0e000001
 
-RESET KEYBOARD [CUSTOM FUNCTION] = 0x09,0x00,0x0b000300 
+RESET KEYBOARD [CUSTOM FUNCTION] = 0x09,0x00,0x0b000300
 
 CHANGE BACKLIT BRIGHTNESS[CUSTOM FUNCTION] = 0x09,0x00,0x0c000300
 
 CHANGE BACKLIT COLOR[CUSTOM FUNCTION] = 0x09,0x00,0x0e000007
 
-CHANGE BACKLIT RGB MODE[CUSTOM FUNCTION] = 0x09,0x00,0x0d000300		
+CHANGE BACKLIT RGB MODE[CUSTOM FUNCTION] = 0x09,0x00,0x0d000300  
 </pre>
 </div> </details>
